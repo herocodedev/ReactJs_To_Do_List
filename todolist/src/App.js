@@ -1,25 +1,23 @@
 import "./App.css";
 import React from "react";
-import react from "react";
 
-class App extends react.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { task: "", tasks: [] };
+    this.state = {
+      taskname: " ",
+      tasks: [],
+    };
   }
-  myChangeTaskHandler = (event) => {
-    //console.log(event.target.value);
-    this.setState({ task: event.target.value });
-  };
+  myTaskChangeHandler = (event) => {
+    this.setState({taskname:event.target.value})
+  }
   addTaskHandler = (event) => {
-    console.log(this.state.task);
-    this.state.tasks.push(this.state.task);
-    let newTask = this.state.tasks;
-    console.log(newTask);
-    this.setState({ tasks: newTask });
-    this.state.task = "";
-    console.log(this.state.task);
-  };
+    this.state.tasks.push(this.state.taskname)
+    let newTasks = this.state.tasks
+    this.setState({tasks:newTasks})
+    this.setState({taskname : ''})
+  }
   render() {
     return (
       <div className="App">
@@ -32,17 +30,17 @@ class App extends react.Component {
             width="30px"
             style={{ cursor: "pointer" }}
             title="Bấm Để thêm Task"
-            onClick={() => this.addTaskHandler()}
+            onClick = {(e) => this.addTaskHandler(e)}
           />
           <input
-            value={this.state.task}
             type="text"
-            onChange={this.myChangeTaskHandler}
+            value = {this.state.taskname}
+            onChange = {(e) => this.myTaskChangeHandler(e)}
           />
         </header>
         <ul style={{ listStyle: "none" }}>
-          {this.state.tasks.map((val, index) => {
-            return <li key={index}>{val}</li>;
+          {this.state.tasks.map((val,index) => {
+            return <li key = {index}>{val}</li>
           })}
         </ul>
       </div>
