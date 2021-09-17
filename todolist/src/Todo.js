@@ -17,7 +17,7 @@ class Todo extends React.Component {
           title="Hoàn Thành"
         />
         <img
-          src="/assest/delete.png"
+          src="/assest/complete.png"
           alt="add task"
           width="30px"
           style={{ cursor: "pointer" }}
