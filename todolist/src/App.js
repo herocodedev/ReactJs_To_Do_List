@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import react from "react";
-
+import Todo from "./Todo";
 class App extends react.Component {
   constructor(props) {
     super(props);
@@ -42,7 +42,7 @@ class App extends react.Component {
         </header>
         <ul style={{ listStyle: "none" }}>
           {this.state.tasks.map((val, index) => {
-            return <li key={index}>{val}</li>;
+            return <Todo key={index} value={val}/>;
           })}
         </ul>
       </div>
