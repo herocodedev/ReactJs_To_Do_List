@@ -1,0 +1,27 @@
+.aligned{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.TodoList {
+    text-align: left;
+    margin-left: 40px;
+}
+.TodoList img{
+    margin: 0 5px;
+}
+
+.done{
+    text-decoration: line-through;
+}
+
+.checkDone{
+    margin-left: 12px;
+}
+.App-header{
+    align-items: center;
+    display: flex;
+    justify-content: normal;
+    font-size: calc(10px + 2vmin);
+    color: #000;
+}

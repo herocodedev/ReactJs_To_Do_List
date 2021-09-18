@@ -9,3 +9,11 @@
 .Todo img{
     margin: 0 5px;
 }
+
+.done{
+    text-decoration: line-through;
+}
+
+.checkDone{
+    margin-left: 12px;
+}
