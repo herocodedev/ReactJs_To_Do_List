@@ -36,8 +36,8 @@ class TodoList extends React.Component {
   };
 
   completeTask = (id) => {
-    console.log("List: ", this.state.tasks);
-    console.log("Completask: ", id);
+    // console.log("List: ", this.state.tasks);
+    // console.log("Completask: ", id);
 
     const tasks = this.state.tasks;
     tasks.forEach((task) => {
@@ -47,9 +47,10 @@ class TodoList extends React.Component {
     this.setState({ tasks });
 
     // let tasks = this.state.tasks.filter(task => task.id ===id)
-    // console.log('task muon complete: ',tasks)
+    console.log('task muon complete: ',tasks)
   };
   render() {
+    // console.log('render Lai')
     return (
       <div className="TodoList">
        {this.state.todoListName}
@@ -73,8 +74,7 @@ class TodoList extends React.Component {
             return (
               <Todo
                 key={index}
-                id={val.id}
-                value={val.name}
+                data={val}
                 deleteTask={this.deleteTask}
                 completeTask={this.completeTask}
               />
