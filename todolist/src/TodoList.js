@@ -43,7 +43,7 @@ class TodoList extends react.Component {
         {this.state.todoListName}
         <header className="App-header">
           <img
-            src="/assest/add.png"
+            src={process.env.PUBLIC_URL + "/assest/add.png"}
             alt="add task"
             width="30px"
             style={{ cursor: "pointer" }}
@@ -61,9 +61,7 @@ class TodoList extends react.Component {
             return (
               <Todo
                 key={index}
-                id={val.id}
-                done={val.done}
-                value={val.value}
+                data={val}
                 deleteTask={this.deleteTask}
                 completeTask={this.completeTask}
               />

@@ -11,7 +11,7 @@ class App extends react.Component {
   render() {
     return (
       <div className="App">
-        <table class="table" border="1">
+        <table className="table" border="1">
           <thead>
             <tr>
               <th scope="col">Nhiệm vụ 1</th>

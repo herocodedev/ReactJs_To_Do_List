@@ -4,24 +4,20 @@ import React from "react";
 class Todo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { id: props.id, value: props.value, done: props.done };
+    this.state = {data:props.data};
   }
 
-  completeTask = () => {
-    this.setState({ done: true });
-    this.props.completeTask(this.state.id);
-  };
   render() {
     let checkDone = "";
-    if (!this.state.done) {
+    if (!this.state.data.done) {
       checkDone = (
         <img
-          src="/assest/complete.png"
+          src={process.env.PUBLIC_URL + "/assest/complete.png"}
           alt="add task"
           width="30px"
           style={{ cursor: "pointer" }}
           title="Hoàn Thành"
-          onClick={(e) => this.completeTask()}
+          onClick={(e) => this.props.completeTask(this.state.data.id)}
         />
       );
     } else{
@@ -31,16 +27,16 @@ class Todo extends React.Component {
       <div className="Todo aligned">
         {checkDone}
         <img
-          src="/assest/delete.png"
+          src={process.env.PUBLIC_URL + '/assest/delete.png'}
           alt="add task"
           width="30px"
           style={{ cursor: "pointer" }}
           title="Xóa"
-          onClick={(e) => this.props.deleteTask(this.props.id)}
+          onClick={(e) => this.props.deleteTask(this.props.data.id)}
         />
         &nbsp; &nbsp;
-        <span className={this.state.done ? "done" : ""}>
-          {this.props.value}
+        <span className={this.state.data.done ? "done" : ""}>
+          {this.props.data.value}
         </span>
       </div>
     );
