@@ -1,0 +1,11 @@
+.aligned{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Todo {
+    text-align: center;
+}
+.Todo img{
+    margin: 0 5px;
+}

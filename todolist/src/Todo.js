@@ -1,4 +1,4 @@
-import "./App.css";
+import "./Todo.css";
 import React from "react";
 
 class Todo extends React.Component {
@@ -8,20 +8,22 @@ class Todo extends React.Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="Todo aligned">
         <img
           src="/assest/complete.png"
           alt="add task"
           width="30px"
           style={{ cursor: "pointer" }}
           title="Hoàn Thành"
+          onClick = {(e) => this.props.completeTask(this.props.id)}
         />
         <img
-          src="/assest/complete.png"
+          src="/assest/delete.png"
           alt="add task"
           width="30px"
           style={{ cursor: "pointer" }}
           title="Xóa"
+          onClick = {(e) => this.props.deleteTask(this.props.id)}
         />
         &nbsp; &nbsp;
         <span>{this.props.value}</span>

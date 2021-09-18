@@ -12,14 +12,32 @@ class App extends react.Component {
     this.setState({ task: event.target.value });
   };
   addTaskHandler = (event) => {
-    console.log(this.state.task);
-    this.state.tasks.push(this.state.task);
-    let newTask = this.state.tasks;
-    console.log(newTask);
-    this.setState({ tasks: newTask });
+    if(this.state.task === ' ')
+      return ;
+    const id = this.state.tasks.length
+    const name = this.state.task
+    this.state.tasks.push({id,value:name,done:false})
+    let newTasks = this.state.tasks
+    this.setState({ tasks: newTasks });
     this.state.task = "";
-    console.log(this.state.task);
+    console.log(newTasks)
   };
+
+  deleteTask = (id) => {
+      let newTasks = this.state.tasks.filter(task => task.id !== id)
+      this.setState({tasks:newTasks})
+  }
+
+  completeTask = (id) => {
+    this.state.tasks.forEach(task => {
+      if(task.id === id){
+        task.done = true
+      }
+    })
+    let newTasks = this.state.tasks
+    this.setState({tasks:newTasks})
+    console.log(newTasks)
+  }
   render() {
     return (
       <div className="App">
@@ -40,9 +58,9 @@ class App extends react.Component {
             onChange={this.myChangeTaskHandler}
           />
         </header>
-        <ul style={{ listStyle: "none" }}>
+        <ul style={{ listStyle: "none",padding:0 }}>
           {this.state.tasks.map((val, index) => {
-            return <Todo key={index} value={val}/>;
+            return <Todo key={index} id={val.id} value={val.value} deleteTask={this.deleteTask} completeTask={this.completeTask} />;
           })}
         </ul>
       </div>
